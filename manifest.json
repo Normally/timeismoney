@@ -1,0 +1,12 @@
+{
+   "content_scripts": [ {
+      "js": [ "content.js" ],
+      "matches": [ "http://*/*", "https://*/*" ],
+      "run_at": "document_end"
+   } ],
+   "description": "How much time will that cost you?",
+   "manifest_version": 2,
+   "name": "Time is money",
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "0.1"
+}
