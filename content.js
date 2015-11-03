@@ -3235,8 +3235,9 @@ for (var i = 0; i < elements.length; i++) {
             // if text is money, do it!
             if (re_2dp.test(text) || re_0dp.test(text)) {
 
-              var launderedMoney = text.replace(re_strip, '');
-              
+              var withoutCommas = text.replace(/,/g, '');
+              var launderedMoney = withoutCommas.replace(re_strip, '');
+
               time = convertMoneyToTime(launderedMoney);
               element.replaceChild(document.createTextNode(time), node);
             }
