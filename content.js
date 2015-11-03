@@ -3204,8 +3204,10 @@ var elements = document.getElementsByTagName('*');
 var hoursPerDay = 8;
 var yearlyWage = 22044; // https://en.wikipedia.org/wiki/Income_in_the_United_Kingdom
 
+// Set the day threshold to the number of hours per day worked
+moment.relativeTimeThreshold('h', hoursPerDay);
+
 var oneSecondWage = function() {
-  var yearlyWage = 30000;
   var weeklyWage = yearlyWage/52;
   var dailyWage = weeklyWage/5;
   var oneHourWage = dailyWage/hoursPerDay;
