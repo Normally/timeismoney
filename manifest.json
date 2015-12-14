@@ -11,5 +11,10 @@
    "icons": { "16": "icon16.png",
               "48": "icon48.png",
              "128": "icon128.png" },
+  "browser_action": {
+    "default_title": "Time is Money",
+    "default_icon": "icon48.png",
+    "default_popup": "index.html"
+  },
    "version": "1"
 }
