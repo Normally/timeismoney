@@ -39,14 +39,15 @@ function convertMoneyToHumanizedTime(money) {
 }
 
 function replaceMoneyWithTime(text) {
-  var re = /\£\d{0,3}(,?\d+)?(.?\d+)/;
-  var re_strip = /[^0-9.]/g;
+  var re = /\£\d{0,3}(,?\d+)?(.?\d+)(K|k|M|m)?/;
+  var re_strip = /[^0-9.kKmM]/g;
   var result;
   var matches  = re.exec(text);
   if (matches) {
     var match = matches[0];
     var cleaned = match.replace(re_strip, '');
-    var time = convertMoneyToHumanizedTime(cleaned);
+    var expanded = cleaned.replace(/k|K/, '000').replace(/m|M/, '000000');
+    var time = convertMoneyToHumanizedTime(expanded);
     result = matches.input.replace(match, time);
   }
   else { result = text; }

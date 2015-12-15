@@ -26,3 +26,27 @@ QUnit.test( "Correctly parse a number with commas", function( assert ) {
   var after  = replaceMoneyWithTime(before);
   assert.equal(after, "a month");
 });
+
+QUnit.test( "Handle K", function( assert ) {
+  var before = "£100K per year";
+  var after  = replaceMoneyWithTime(before);
+  assert.equal(after, "a year per year");
+});
+
+QUnit.test( "Handle k", function( assert ) {
+  var before = "£100k per year";
+  var after  = replaceMoneyWithTime(before);
+  assert.equal(after, "a year per year");
+});
+
+QUnit.test( "Handle M", function( assert ) {
+  var before = "£100M per year";
+  var after  = replaceMoneyWithTime(before);
+  assert.equal(after, "1076 years per year");
+});
+
+QUnit.test( "Handle m", function( assert ) {
+  var before = "£100m per year";
+  var after  = replaceMoneyWithTime(before);
+  assert.equal(after, "1076 years per year");
+});
