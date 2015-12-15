@@ -21,20 +21,19 @@ function convertMoneyToTime(money) {
   return string;
 }
 
-function replaceMoneyWithTimeIfNeeded(node) {
+function replaceMoneyWithTime(text) {
   var re_2dp = /\£\d+\.\d{2}/;
   var re_0dp = /\£\d+/;
   var re_strip = /[^0-9.]/g;
-  var text = node.nodeValue;
   var money;
   var result;
   // if text is money, do it!
   if (re_2dp.test(text) || re_0dp.test(text)) {
     var withoutCommas = text.replace(/,/g, '');
     var launderedMoney = withoutCommas.replace(re_strip, '');
-    time = convertMoneyToTime(launderedMoney);
-    result = element.replaceChild(document.createTextNode(time), node);
+    var result = convertMoneyToTime(launderedMoney);
   }
+  else { result = text; }
   return result;
 }
 
@@ -47,7 +46,11 @@ for (var i = 0; i < elements.length; i++) {
       var node = element.childNodes[j];
 
       if (node.nodeType === 3) {
-        replaceMoneyWithTimeIfNeeded(node);
+        var text = node.nodeValue;
+        updatedText = replaceMoneyWithTime(text);
+        if (updatedText != text) {
+          element.replaceChild(document.createTextNode(updatedText), node);
+        }
       }
     }
 }
