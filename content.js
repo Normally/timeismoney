@@ -1,5 +1,6 @@
 // Time is money
 
+// TODO: do a proper export so we're not using globals
 var settings = {};
 settings.hoursPerDay = 8;
 settings.yearlyWage = 22044;
@@ -24,9 +25,15 @@ var oneSecondWage = function() {
   return wagePerSecond;
 };
 
-function convertMoneyToTime(money) {
+function convertMoneyToSeconds(money) {
   var doubleMoney = parseInt(money);
-  var numberOfSeconds = doubleMoney/oneSecondWage();
+  seconds = doubleMoney/oneSecondWage();
+  return Math.ceil(seconds);
+}
+
+function convertMoneyToHumanizedTime(money) {
+  var doubleMoney = parseInt(money);
+  var numberOfSeconds = convertMoneyToSeconds(doubleMoney);
   var string = moment.duration(numberOfSeconds, "seconds").humanize();
   return string;
 }
@@ -39,7 +46,7 @@ function replaceMoneyWithTime(text) {
   if (matches) {
     var match = matches[0];
     var cleaned = match.replace(re_strip, '');
-    var time = convertMoneyToTime(cleaned);
+    var time = convertMoneyToHumanizedTime(cleaned);
     result = matches.input.replace(match, time);
   }
   else { result = text; }

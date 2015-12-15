@@ -1,6 +1,6 @@
 QUnit.test( "Check money to time conversion works", function( assert ) {
-    var time = convertMoneyToTime(5);
-    assert.ok( time == "28 minutes" );
+  var time = convertMoneyToSeconds(5);
+  assert.equal( time, 1699 );
 });
 
 QUnit.test( "Replace a substring", function( assert ) {
