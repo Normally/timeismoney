@@ -54,20 +54,46 @@ function replaceMoneyWithTime(text) {
   return result;
 }
 
-var elements = document.getElementsByTagName('*');
+function addStyles() {
+  var css = 'span.timeIsMoney { all: inherit!important; border-bottom-style: dashed!important; border-bottom-width: 2px!important; padding: 0!important; margin: 0!important; }',
+      head = document.head || document.getElementsByTagName('head')[0],
+      style = document.createElement('style');
 
-for (var i = 0; i < elements.length; i++) {
-  var element = elements[i];
+  style.type = 'text/css';
+  if (style.styleSheet){
+    style.styleSheet.cssText = css;
+  } else {
+    style.appendChild(document.createTextNode(css));
+  }
 
-  for (var j = 0; j < element.childNodes.length; j++) {
-    var node = element.childNodes[j];
+  head.appendChild(style);
+}
 
-    if (node.nodeType === 3) {
-      var text = node.nodeValue;
-      updatedText = replaceMoneyWithTime(text);
-      if (updatedText != text) {
-        element.replaceChild(document.createTextNode(updatedText), node);
+function run() {
+  var elements = document.getElementsByTagName('*');
+
+  for (var i = 0; i < elements.length; i++) {
+    var element = elements[i];
+
+    for (var j = 0; j < element.childNodes.length; j++) {
+      var node = element.childNodes[j];
+
+      if (node.nodeType === 3) {
+        var text = node.nodeValue;
+        var color = window.getComputedStyle(element).color;
+        updatedText = replaceMoneyWithTime(text);
+        if (updatedText != text) {
+          var span = document.createElement("span");
+          span.className = "timeIsMoney";
+          span.style.borderColor = color;
+          var content = document.createTextNode(updatedText);
+          span.appendChild(content);
+          element.replaceChild(span, node);
+        }
       }
     }
   }
 }
+
+addStyles();
+run();
