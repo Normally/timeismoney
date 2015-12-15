@@ -1,10 +1,5 @@
 // Time is money
-console.log("Time is money extension is running.");
 
-var re_2dp = /\£\d+\.\d{2}/;
-var re_0dp = /\£\d+/;
-var re_strip = /[^0-9.]/g;
-var elements = document.getElementsByTagName('*');
 var hoursPerDay = 8;
 var yearlyWage = 22044; // https://en.wikipedia.org/wiki/Income_in_the_United_Kingdom
 
@@ -26,25 +21,33 @@ function convertMoneyToTime(money) {
   return string;
 }
 
+function replaceMoneyWithTimeIfNeeded(node) {
+  var re_2dp = /\£\d+\.\d{2}/;
+  var re_0dp = /\£\d+/;
+  var re_strip = /[^0-9.]/g;
+  var text = node.nodeValue;
+  var money;
+  var result;
+  // if text is money, do it!
+  if (re_2dp.test(text) || re_0dp.test(text)) {
+    var withoutCommas = text.replace(/,/g, '');
+    var launderedMoney = withoutCommas.replace(re_strip, '');
+    time = convertMoneyToTime(launderedMoney);
+    result = element.replaceChild(document.createTextNode(time), node);
+  }
+  return result;
+}
+
+var elements = document.getElementsByTagName('*');
+
 for (var i = 0; i < elements.length; i++) {
     var element = elements[i];
 
     for (var j = 0; j < element.childNodes.length; j++) {
-        var node = element.childNodes[j];
+      var node = element.childNodes[j];
 
-        if (node.nodeType === 3) {
-            var text = node.nodeValue;
-            var money;
-
-            // if text is money, do it!
-            if (re_2dp.test(text) || re_0dp.test(text)) {
-
-              var withoutCommas = text.replace(/,/g, '');
-              var launderedMoney = withoutCommas.replace(re_strip, '');
-
-              time = convertMoneyToTime(launderedMoney);
-              element.replaceChild(document.createTextNode(time), node);
-            }
-        }
+      if (node.nodeType === 3) {
+        replaceMoneyWithTimeIfNeeded(node);
+      }
     }
 }
