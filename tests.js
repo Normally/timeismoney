@@ -6,5 +6,5 @@ QUnit.test( "hello test", function( assert ) {
 QUnit.test( "replace test", function( assert ) {
   var before = "£1000 a week";
   var after  = replaceMoneyWithTime(before);
-  assert.equal(after, "4 days");
+  assert.equal(after, "4 days a week");
 });

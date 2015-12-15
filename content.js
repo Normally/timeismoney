@@ -25,13 +25,15 @@ function replaceMoneyWithTime(text) {
   var re_2dp = /\£\d+\.\d{2}/;
   var re_0dp = /\£\d+/;
   var re_strip = /[^0-9.]/g;
-  var money;
   var result;
-  // if text is money, do it!
-  if (re_2dp.test(text) || re_0dp.test(text)) {
-    var withoutCommas = text.replace(/,/g, '');
-    var launderedMoney = withoutCommas.replace(re_strip, '');
-    var result = convertMoneyToTime(launderedMoney);
+  var matches = re_0dp.exec(text);
+  if (matches) {
+    for (var i = 0; i < matches.length; i ++) {
+      var match = matches[i];
+      var cleaned = match.replace(re_strip, '');
+      var time = convertMoneyToTime(cleaned);
+      result = matches.input.replace(match, time);
+    }
   }
   else { result = text; }
   return result;
