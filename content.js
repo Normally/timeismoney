@@ -1,15 +1,25 @@
 // Time is money
 
-var hoursPerDay = 8;
-var yearlyWage = 22044; // https://en.wikipedia.org/wiki/Income_in_the_United_Kingdom
+var settings = {};
+settings.hoursPerDay = 8;
+settings.yearlyWage = 22044;
+
+settings.setHoursPerDay = function(hoursPerDay) {
+  settings.hoursPerDay = hoursPerDay;
+}
+
+settings.setYearlyWage = function(yearlyWage) {
+  settings.yearlyWage = yearlyWage;
+  // https://en.wikipedia.org/wiki/Income_in_the_United_Kingdom
+}
 
 // Set the day threshold to the number of hours per day worked
-moment.relativeTimeThreshold('h', hoursPerDay);
+moment.relativeTimeThreshold('h', settings.hoursPerDay);
 
 var oneSecondWage = function() {
-  var weeklyWage = yearlyWage/52;
+  var weeklyWage = settings.yearlyWage/52;
   var dailyWage = weeklyWage/5;
-  var oneHourWage = dailyWage/hoursPerDay;
+  var oneHourWage = dailyWage/settings.hoursPerDay;
   var wagePerSecond = oneHourWage/60/60;
   return wagePerSecond;
 };
