@@ -26,13 +26,22 @@ function replaceMoneyWithTime(text) {
   var re_0dp = /\£\d+/;
   var re_strip = /[^0-9.]/g;
   var result;
-  var matches = re_0dp.exec(text);
-  if (matches) {
-    for (var i = 0; i < matches.length; i ++) {
-      var match = matches[i];
+  var twoDP_matches  = re_2dp.exec(text);
+  var zeroDP_matches = re_0dp.exec(text);
+  if (twoDP_matches) {
+    for (var i = 0; i < twoDP_matches.length; i ++) {
+      var match = twoDP_matches[i];
       var cleaned = match.replace(re_strip, '');
       var time = convertMoneyToTime(cleaned);
-      result = matches.input.replace(match, time);
+      result = twoDP_matches.input.replace(match, time);
+    }
+  }
+  else if (zeroDP_matches) {
+    for (var i = 0; i < zeroDP_matches.length; i ++) {
+      var match = zeroDP_matches[i];
+      var cleaned = match.replace(re_strip, '');
+      var time = convertMoneyToTime(cleaned);
+      result = zeroDP_matches.input.replace(match, time);
     }
   }
   else { result = text; }
