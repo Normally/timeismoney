@@ -40,17 +40,17 @@ function replaceMoneyWithTime(text) {
 var elements = document.getElementsByTagName('*');
 
 for (var i = 0; i < elements.length; i++) {
-    var element = elements[i];
+  var element = elements[i];
 
-    for (var j = 0; j < element.childNodes.length; j++) {
-      var node = element.childNodes[j];
+  for (var j = 0; j < element.childNodes.length; j++) {
+    var node = element.childNodes[j];
 
-      if (node.nodeType === 3) {
-        var text = node.nodeValue;
-        updatedText = replaceMoneyWithTime(text);
-        if (updatedText != text) {
-          element.replaceChild(document.createTextNode(updatedText), node);
-        }
+    if (node.nodeType === 3) {
+      var text = node.nodeValue;
+      updatedText = replaceMoneyWithTime(text);
+      if (updatedText != text) {
+        element.replaceChild(document.createTextNode(updatedText), node);
       }
     }
+  }
 }
