@@ -20,3 +20,9 @@ QUnit.test( "Match a number with decimals as a substring", function( assert ) {
   var after  = replaceMoneyWithTime(before);
   assert.equal(after, "4 days a week");
 });
+
+QUnit.test( "Correctly parse a number with commas", function( assert ) {
+  var before = "£10,000";
+  var after  = replaceMoneyWithTime(before);
+  assert.equal(after, "a month");
+});
