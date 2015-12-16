@@ -6,6 +6,8 @@
    } ],
    "description": "How much time will that cost you?",
    "manifest_version": 2,
+   "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
+   "background": { "page": "ga.html" },
    "name": "Time is money",
    "update_url": "https://clients2.google.com/service/update2/crx",
    "icons": { "16": "icon16.png",
@@ -13,15 +15,10 @@
              "128": "icon128.png" },
   "browser_action": {
     "default_title": "Time is Money",
-    "default_icon": "icon48.png",
+    "default_icon":  "icon48.png",
     "default_popup": "options.html"
   },
-  "options_ui": {
-    "page": "options.html",
-    "chrome_style": false
-  },
-  "permissions": [
-    "storage"
-  ],
-   "version": "1.5"
+  "options_ui":  { "page": "options.html", "chrome_style": false },
+  "permissions": [ "storage" ],
+  "version":     "1.51"
 }
