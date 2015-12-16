@@ -46,8 +46,14 @@ function replaceMoneyWithTime(text) {
   if (matches) {
     var match = matches[0];
     var cleaned = match.replace(re_strip, '');
-    var expanded = cleaned.replace(/k|K/, '000').replace(/m|M/, '000000');
-    var time = convertMoneyToHumanizedTime(expanded);
+    if (/(k|K)$/.test(cleaned)) {
+      cleaned = cleaned.replace(/(k|K)$/, '');
+      cleaned = parseInt(cleaned) * Math.pow(10,3);
+    } else if (/(m|M)$/.test(cleaned)) {
+      cleaned = cleaned.replace(/(m|M)$/, '');
+      cleaned = parseInt(cleaned) * Math.pow(10,6);
+    }
+    var time = convertMoneyToHumanizedTime(cleaned);
     result = matches.input.replace(match, time);
   }
   else { result = text; }
@@ -104,13 +110,17 @@ function run() {
 }
 
 function getSettings(callback) {
-  chrome.storage.sync.get({
-    yearlySalary: '22000'
-  }, function(items) {
-    settings.setYearlyWage(items.yearlySalary);
-    // run the code after we've got the settings
+  if (!chrome.storage) {
     callback();
-  });
+  }
+  else {
+    chrome.storage.sync.get({
+      yearlySalary: '22000'
+    }, function(items) {
+      settings.setYearlyWage(items.yearlySalary);
+      callback(); // run the code after we've got the settings
+    });
+  }
 }
 
 addStyles();

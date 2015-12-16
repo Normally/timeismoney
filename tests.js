@@ -51,10 +51,8 @@ QUnit.test( "Handle m", function( assert ) {
   assert.equal(after, "1076 years per year");
 });
 
-// To do: we should actually be multiplying by 1M/1k
-// rather than just adding the zeros...!
 QUnit.test( "Handle £25.5M", function( assert ) {
   var before = "£25.5M per year";
   var after  = replaceMoneyWithTime(before);
-  assert.equal(after, "1076 years per year");
+  assert.equal(after, "269 years per year");
 });
