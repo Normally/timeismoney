@@ -39,7 +39,7 @@ function convertMoneyToHumanizedTime(money) {
 }
 
 function replaceMoneyWithTime(text) {
-  var re = /\£\d{0,3}(,?\d+)?(.?\d+)(K|k|M|m)?/;
+  var re = /\£\d{0,3}(,?\d+)?(.?\d+)(K|k|M|m)?/; // http://regexr.com/3cduh
   var re_strip = /[^0-9.kKmM]/g;
   var result;
   var matches  = re.exec(text);
