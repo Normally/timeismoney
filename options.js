@@ -8,10 +8,13 @@ function save_options() {
   }, function() {
     // Update status to let user know options were saved.
     var status = document.getElementById('status');
-    status.textContent = 'Options saved.';
+    status.className = 'show';
+    status.textContent = 'Saved';
+    status.style.opacity = 1;
     setTimeout(function() {
-      status.textContent = '';
-    }, 1500);
+      status.style.opacity = 0;
+      window.close();
+    }, 750);
   });
 }
 
@@ -27,4 +30,7 @@ function restore_options() {
 }
 document.addEventListener('DOMContentLoaded', restore_options);
 document.getElementById('save').addEventListener('click', save_options);
-document.getElementById('salary').addEventListener('submit', save_options);
+document.getElementById('salary').addEventListener('keypress', function(e) {
+  var key = e.which || e.keyCode;
+  if (key === 13) { save_options(); }
+});
