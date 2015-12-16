@@ -14,7 +14,14 @@
   "browser_action": {
     "default_title": "Time is Money",
     "default_icon": "icon48.png",
-    "default_popup": "index.html"
+    "default_popup": "options.html"
   },
+  "options_ui": {
+    "page": "options.html",
+    "chrome_style": false
+  },
+  "permissions": [
+    "storage"
+  ],
    "version": "1.4"
 }
