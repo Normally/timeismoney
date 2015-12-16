@@ -1,15 +1,17 @@
 // Saves options to chrome.storage.sync.
 function save_options() {
+  var re_strip = /[^0-9]/g;
   var yearlySalary = document.getElementById('salary').value;
+  var cleaned = yearlySalary.replace(re_strip, '');
   chrome.storage.sync.set({
-    yearlySalary: yearlySalary
+    yearlySalary: cleaned
   }, function() {
     // Update status to let user know options were saved.
     var status = document.getElementById('status');
     status.textContent = 'Options saved.';
     setTimeout(function() {
       status.textContent = '';
-    }, 1000);
+    }, 1500);
   });
 }
 
