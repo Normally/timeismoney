@@ -110,7 +110,7 @@ function run() {
 }
 
 function getSettings(callback) {
-  if (!chrome.storage) {
+  if (typeof chrome == "undefined" || typeof chrome.storage == "undefined") {
     callback();
   }
   else {
