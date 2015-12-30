@@ -56,3 +56,9 @@ QUnit.test( "Handle £25.5M", function( assert ) {
   var after  = replaceMoneyWithTime(before);
   assert.equal(after, "269 years per year");
 });
+
+QUnit.test( "Match a number with decimals", function( assert ) {
+  var before = "£1000.00";
+  var after  = replaceMoneyWithTime(before);
+  assert.equal(after, "4 days");
+});
