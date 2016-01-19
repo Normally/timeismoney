@@ -13,3 +13,5 @@ A Chrome plugin that converts money to time.
 - Add 'advanced' fields: tax, days a week, hours a day
 - Change the numbers without a refresh when you click on/off
 - Add ability to compare to another unit (e.g. how many coffees is that)
+- Example pages to look at
+- Compare your wage against...
