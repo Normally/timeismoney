@@ -1,6 +1,6 @@
 {
    "content_scripts": [ {
-      "js": [ "moment.js", "content.js" ],
+      "js": [ "content.js" ],
       "matches": [ "http://*/*", "https://*/*" ],
       "run_at": "document_end"
    } ],
@@ -20,5 +20,5 @@
   },
   "options_ui":  { "page": "options.html", "chrome_style": false },
   "permissions": [ "storage" ],
-  "version":     "1.52"
+  "version":     "1.6"
 }

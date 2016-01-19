@@ -35,7 +35,7 @@
       margin-bottom: 10px;
     }
     .formItem {
-      margin-bottom: 12px;
+      margin-bottom: 30px;
     }
     .formItem-label {
       margin-bottom: 7px;
@@ -70,11 +70,14 @@
       font-family: Lato;
       font-size: 14px;
     }
+    button.onoff {
+      width: 90px;
+    }
     .saveButtonContainer {
       position: relative;
       width: 100%;
       height: 40px;
-      top: 15px;
+      top: 0;
     }
     .saveButtonContainer button {
       position: absolute;
@@ -108,8 +111,16 @@
 
 <body>
   <div id="mainContent">
-    <h2>Time is Money <span class="version">v1.5</span></h2>
+    <h2>Time is Money <span class="version">v1.6</span></h2>
     <div class="settingsForm">
+
+      <div class="formItem">
+        <div class="formItem-input">
+          <button id="on" class="onoff">On</button>
+          <button id="off" class="onoff" style="margin-left: -10px">Off</button>
+        </div>
+      </div>
+
       <div class="formItem">
         <div class="formItem-label">
           Yearly salary
@@ -118,10 +129,12 @@
           <input type="text" id="salary" />
         </div>
       </div>
+
       <div class="saveButtonContainer">
         <button id="save">SAVE</button>
         <div id="status">&nbsp;</div>
       </div>
+
     </div>
   </div>
 

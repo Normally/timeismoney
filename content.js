@@ -5,7 +5,8 @@ var settings = {
   yearlyWage: 100000,
   tax: 0,
   workingDays: 5,
-  workingHours: 8
+  workingHours: 8,
+  isActive: true
 };
 
 settings.setHoursPerDay = function(hoursPerDay) {
@@ -14,6 +15,10 @@ settings.setHoursPerDay = function(hoursPerDay) {
 
 settings.setYearlyWage = function(yearlyWage) {
   settings.yearlyWage = yearlyWage;
+}
+
+settings.setActiveState = function(state) {
+  settings.setIsActive = state;
 }
 
 var oneSecondWage = function() {
@@ -179,10 +184,14 @@ function getSettings(callback) {
   }
   else {
     chrome.storage.sync.get({
-      yearlySalary: '22000'
+      yearlySalary: '22000',
+      isActive: true
     }, function(items) {
       settings.setYearlyWage(items.yearlySalary);
-      callback(); // run the code after we've got the settings
+      settings.setActiveState(items.isActive);
+      if (items.isActive) {
+        callback(); // run the code after we've got the settings
+      }
     });
   }
 }
