@@ -4,35 +4,9 @@ var oneSecondWage = function() {
   return (settings.yearlyWage * (1 - settings.tax)) / (settings.workingDays * 52) / settings.workingHours / 60 / 60;
 };
 
-TIM.view = (function(){
 
-  var update = function(){
-    console.log("TODO");
-  };
-
-  return {
-    update:update
-  };
-
-})();
-
-// TIM.settings.get(function(){
-//   console.log(TIM.settings.values.workingHours);
-//   TIM.settings.set('workingHours', 12);
-// });
-
-
-
-//console.log(TIM.settings.values.workingHours);
-
-//TIM.settings.set('workingHours', 15);
-
-//console.log(TIM.settings.values.workingHours);
 
 // d is seconds in that value, set for 5 days a week, 8 hours a day
-
-
-
 var moneyToTime = function(money) {
   var delta = parseFloat(money) / oneSecondWage(),
     arr = [],
@@ -100,20 +74,7 @@ function replaceMoneyWithTime(text) {
   return result;
 }
 
-function addStyles() {
-  var css = 'span.timeIsMoney { all: inherit!important; border-bottom-style: dotted!important; border-bottom-width: 2px!important; padding: 0!important; margin: 0!important; list-style-type: none!important; list-style-image: none!important; position: relative!important; cursor: pointer!important; } span.timeIsMoney-tooltip { display: none; position: absolute; top: 10px; left: 10px; padding: 10px; background-color: #50E3C2; opacity: 0.9; color: black; z-index: 100000; border-radius: 4px; } span.timeIsMoney:hover > span.timeIsMoney-tooltip { display: block!important; }',
-      head = document.head || document.getElementsByTagName('head')[0],
-      style = document.createElement('style');
 
-  style.type = 'text/css';
-  if (style.styleSheet){
-    style.styleSheet.cssText = css;
-  } else {
-    style.appendChild(document.createTextNode(css));
-  }
-
-  head.appendChild(style);
-}
 
 
 var settings;
@@ -187,5 +148,5 @@ function run() {
   }
 }
 
-addStyles();
+TIM.view.addStyles();
 TIM.settings.load(run);

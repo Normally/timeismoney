@@ -1,5 +1,3 @@
-var TIM = {};
-
 TIM.settings = (function () {
 
   this.values = {
