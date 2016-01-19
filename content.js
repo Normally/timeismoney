@@ -1,8 +1,5 @@
 // Time is money
 
-var oneSecondWage = function() {
-  return (settings.yearlyWage * (1 - settings.tax)) / (settings.workingDays * 52) / settings.workingHours / 60 / 60;
-};
 
 
 

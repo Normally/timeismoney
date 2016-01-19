@@ -1,5 +1,9 @@
 TIM.convert = (function() {
 
+  var oneSecondWage = function() {
+    return (settings.yearlyWage * (1 - settings.tax)) / (settings.workingDays * 52) / settings.workingHours / 60 / 60;
+  };
+
   // d is seconds in that value, set for 5 days a week, 8 hours a day
   var moneyToTime = function(money) {
     var delta = parseFloat(money) / oneSecondWage(),
