@@ -100,10 +100,6 @@ var moneyToTime = function(money) {
       count++;
     }
   };
-  // say 'a' instead of 1 for single values
-  if (str.charAt(0) === '1' && count < 2) {
-    str = 'a' + str.substring(1);
-  }
   return str;
 };
 
