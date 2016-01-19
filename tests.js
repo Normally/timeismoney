@@ -1,30 +1,30 @@
 QUnit.test( "Check money to time conversion works", function( assert ) {
-  var time = convertMoneyToSeconds(5);
-  assert.equal( time, 1699 );
+  var time = moneyToTime(5);
+  assert.equal( time, "6 minutes, 14 seconds" );
 });
 
 QUnit.test( "Replace a substring", function( assert ) {
   var before = "£1000 a week";
   var after  = replaceMoneyWithTime(before);
-  assert.equal(after, "4 days a week");
+  assert.equal(after, "2 days, 4 hours a week");
 });
 
 QUnit.test( "Match a number with decimals", function( assert ) {
   var before = "£1000.00";
   var after  = replaceMoneyWithTime(before);
-  assert.equal(after, "4 days");
+  assert.equal(after, "2 days, 4 hours");
 });
 
 QUnit.test( "Match a number with decimals as a substring", function( assert ) {
   var before = "£1000.00 a week";
   var after  = replaceMoneyWithTime(before);
-  assert.equal(after, "4 days a week");
+  assert.equal(after, "2 days, 4 hours a week");
 });
 
 QUnit.test( "Correctly parse a number with commas", function( assert ) {
   var before = "£10,000";
   var after  = replaceMoneyWithTime(before);
-  assert.equal(after, "a month");
+  assert.equal(after, "1 month, 1 week");
 });
 
 QUnit.test( "Handle K", function( assert ) {
@@ -54,11 +54,11 @@ QUnit.test( "Handle m", function( assert ) {
 QUnit.test( "Handle £25.5M", function( assert ) {
   var before = "£25.5M per year";
   var after  = replaceMoneyWithTime(before);
-  assert.equal(after, "269 years per year");
+  assert.equal(after, "250 years per year");
 });
 
 QUnit.test( "Match a number with decimals", function( assert ) {
   var before = "£1000.00";
   var after  = replaceMoneyWithTime(before);
-  assert.equal(after, "4 days");
+  assert.equal(after, "2 days, 4 hours");
 });
