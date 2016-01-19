@@ -14,7 +14,6 @@ TIM.settings = (function () {
     }
     else {
       chrome.storage.sync.get(values, function(items) {
-        console.log(items);
         TIM.settings.values = items;
         if (items.isActive) {
           callback(); // run the code after we've got the values

@@ -40,15 +40,3 @@ TIM.view = (function() {
   };
 
 })();
-
-// TIM.view = (function(){
-//
-//   var update = function(){
-//     console.log("TODO");
-//   };
-//
-//   return {
-//     update:update
-//   };
-//
-// })();
