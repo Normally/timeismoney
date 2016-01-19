@@ -1,46 +1,6 @@
 // Time is money
 
-
-
-
-
-var settings;
-
 function run() {
-
-  settings = TIM.settings.values;
-
-  offsets = {
-    year: {
-      d: 3600*settings.workingHours*settings.workingDays*52, //365 days is 31536000,
-      max: Infinity
-    },
-    month: {
-      d: Math.round(3600*settings.workingHours*settings.workingDays*4.333333),
-      max: 10
-    },
-    week: {
-      d: 3600*settings.workingHours*settings.workingDays,
-      max: 3
-    },
-    day: {
-      d: 3600*settings.workingHours,
-      max: 3
-    },
-    hour: {
-      d: 3600,
-      max: 6
-    },
-    minute: {
-      d: 60,
-      max: 50
-    },
-    second: {
-      d: 1,
-      max: 50
-    }
-  };
-
 
   var elements = document.querySelectorAll('*');
 
@@ -54,22 +14,12 @@ function run() {
         var text = node.nodeValue;
         var color = window.getComputedStyle(element).color;
         updatedText = TIM.convert.replaceMoneyWithTime(text);
+
         if (updatedText != text) {
-          var span = document.createElement("span");
-          var tooltip = document.createElement("span");
-          // class names
-          span.className = "timeIsMoney";
-          tooltip.className = "timeIsMoney-tooltip";
-          // border
-          span.style.borderColor = color;
-          // content
-          var content = document.createTextNode(updatedText);
-          var tooltipContent = document.createTextNode(text);
-          var tooltipWithContent = tooltip.appendChild(tooltipContent);
-          span.appendChild(content);
-          span.appendChild(tooltip);
+          var span = TIM.view.createReplacementNode(text, updatedText, color);
           element.replaceChild(span, node);
         }
+
       }
     }
   }

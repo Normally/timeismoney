@@ -1,5 +1,38 @@
 TIM.convert = (function() {
 
+  var settings = TIM.settings.values;
+
+  var offsets = {
+    year: {
+      d: 3600*settings.workingHours*settings.workingDays*52, //365 days is 31536000,
+      max: Infinity
+    },
+    month: {
+      d: Math.round(3600*settings.workingHours*settings.workingDays*4.333333),
+      max: 10
+    },
+    week: {
+      d: 3600*settings.workingHours*settings.workingDays,
+      max: 3
+    },
+    day: {
+      d: 3600*settings.workingHours,
+      max: 3
+    },
+    hour: {
+      d: 3600,
+      max: 6
+    },
+    minute: {
+      d: 60,
+      max: 50
+    },
+    second: {
+      d: 1,
+      max: 50
+    }
+  };
+
   var oneSecondWage = function() {
     return (settings.yearlyWage * (1 - settings.tax)) / (settings.workingDays * 52) / settings.workingHours / 60 / 60;
   };
