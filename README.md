@@ -5,7 +5,7 @@ A Chrome plugin that converts money to time.
 ## Running the tests
 
 - Start a server in the project directory: `python -m SimpleHTTPServer`
-- Visit http://localhost:8000/test.html
+- Visit http://localhost:8000/test
 
 ## To do
 

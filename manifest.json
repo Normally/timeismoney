@@ -1,6 +1,6 @@
 {
    "content_scripts": [ {
-      "js": [ "TIM.global.js", "TIM.settings.js", "TIM.view.js", "TIM.convert.js", "content.js" ],
+      "js": [ "lib/TIM.global.js", "lib/TIM.settings.js", "lib/TIM.view.js", "lib/TIM.convert.js", "content.js" ],
       "matches": [ "http://*/*", "https://*/*" ],
       "run_at": "document_end"
    } ],
