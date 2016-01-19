@@ -102,12 +102,6 @@ var moneyToTime = function(money) {
   return str;
 };
 
-function convertMoneyToSeconds(money) {
-  var doubleMoney = parseInt(money);
-  seconds = doubleMoney/oneSecondWage();
-  return Math.ceil(seconds);
-};
-
 function replaceMoneyWithTime(text) {
   var re = /\£\d{0,3}(,?\d+)?(.?\d+)(K|k|M|m)?/; // http://regexr.com/3cduh
   var re_strip = /[^0-9.kKmM]/g;
