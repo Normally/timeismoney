@@ -1,62 +1,37 @@
 // Time is money
 
-// TODO: do a proper export so we're not using globals
-var settings = {
-  yearlyWage: 100000,
-  tax: 0,
-  workingDays: 5,
-  workingHours: 8,
-  isActive: true
-};
-
-settings.setHoursPerDay = function(hoursPerDay) {
-  settings.hoursPerDay = hoursPerDay;
-}
-
-settings.setYearlyWage = function(yearlyWage) {
-  settings.yearlyWage = yearlyWage;
-}
-
-settings.setActiveState = function(state) {
-  settings.setIsActive = state;
-}
-
 var oneSecondWage = function() {
   return (settings.yearlyWage * (1 - settings.tax)) / (settings.workingDays * 52) / settings.workingHours / 60 / 60;
 };
 
+TIM.view = (function(){
+
+  var update = function(){
+    console.log("TODO");
+  };
+
+  return {
+    update:update
+  };
+
+})();
+
+// TIM.settings.get(function(){
+//   console.log(TIM.settings.values.workingHours);
+//   TIM.settings.set('workingHours', 12);
+// });
+
+
+
+//console.log(TIM.settings.values.workingHours);
+
+//TIM.settings.set('workingHours', 15);
+
+//console.log(TIM.settings.values.workingHours);
+
 // d is seconds in that value, set for 5 days a week, 8 hours a day
 
-var offsets = {
-  year: {
-    d: 3600*settings.workingHours*settings.workingDays*52, //365 days is 31536000,
-    max: Infinity
-  },
-  month: {
-    d: Math.round(3600*settings.workingHours*settings.workingDays*4.333333),
-    max: 10
-  },
-  week: {
-    d: 3600*settings.workingHours*settings.workingDays,
-    max: 3
-  },
-  day: {
-    d: 3600*settings.workingHours,
-    max: 3
-  },
-  hour: {
-    d: 3600,
-    max: 6
-  },
-  minute: {
-    d: 60,
-    max: 50
-  },
-  second: {
-    d: 1,
-    max: 50
-  }
-};
+
 
 var moneyToTime = function(money) {
   var delta = parseFloat(money) / oneSecondWage(),
@@ -75,7 +50,7 @@ var moneyToTime = function(money) {
     };
     arr.push(obj);
     delta -= value * offsets[key].d;
-  };
+  }
 
   // Round up values according to max, rounding down is not nessecary due to the way we read them back later.
 
@@ -99,7 +74,7 @@ var moneyToTime = function(money) {
       flag = true;
       count++;
     }
-  };
+  }
   return str;
 };
 
@@ -123,7 +98,7 @@ function replaceMoneyWithTime(text) {
   }
   else { result = text; }
   return result;
-};
+}
 
 function addStyles() {
   var css = 'span.timeIsMoney { all: inherit!important; border-bottom-style: dotted!important; border-bottom-width: 2px!important; padding: 0!important; margin: 0!important; list-style-type: none!important; list-style-image: none!important; position: relative!important; cursor: pointer!important; } span.timeIsMoney-tooltip { display: none; position: absolute; top: 10px; left: 10px; padding: 10px; background-color: #50E3C2; opacity: 0.9; color: black; z-index: 100000; border-radius: 4px; } span.timeIsMoney:hover > span.timeIsMoney-tooltip { display: block!important; }',
@@ -138,9 +113,47 @@ function addStyles() {
   }
 
   head.appendChild(style);
-};
+}
+
+
+var settings;
 
 function run() {
+
+  settings = TIM.settings.values;
+
+  offsets = {
+    year: {
+      d: 3600*settings.workingHours*settings.workingDays*52, //365 days is 31536000,
+      max: Infinity
+    },
+    month: {
+      d: Math.round(3600*settings.workingHours*settings.workingDays*4.333333),
+      max: 10
+    },
+    week: {
+      d: 3600*settings.workingHours*settings.workingDays,
+      max: 3
+    },
+    day: {
+      d: 3600*settings.workingHours,
+      max: 3
+    },
+    hour: {
+      d: 3600,
+      max: 6
+    },
+    minute: {
+      d: 60,
+      max: 50
+    },
+    second: {
+      d: 1,
+      max: 50
+    }
+  };
+
+
   var elements = document.querySelectorAll('*');
 
   for (var i = 0; i < elements.length; i++) {
@@ -172,25 +185,7 @@ function run() {
       }
     }
   }
-};
-
-function getSettings(callback) {
-  if (typeof chrome == "undefined" || typeof chrome.storage == "undefined") {
-    callback();
-  }
-  else {
-    chrome.storage.sync.get({
-      yearlySalary: '22000',
-      isActive: true
-    }, function(items) {
-      settings.setYearlyWage(items.yearlySalary);
-      settings.setActiveState(items.isActive);
-      if (items.isActive) {
-        callback(); // run the code after we've got the settings
-      }
-    });
-  }
 }
 
 addStyles();
-getSettings(run);
+TIM.settings.load(run);
