@@ -2,6 +2,13 @@
 
 A Chrome plugin that converts money to time.
 
+![Screenshot](screenshot.png)
+
+## Using the plugin
+
+Install it from the Chrome web store:
+https://chrome.google.com/webstore/detail/time-is-money/djgfofcgmhmmamdbjbcefbmclhblcpkn
+
 ## Running the tests
 
 - Start a server in the project directory: `python -m SimpleHTTPServer`
