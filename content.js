@@ -25,5 +25,4 @@ function run() {
   }
 }
 
-TIM.view.addStyles();
 TIM.settings.load(run);

@@ -1,6 +1,7 @@
 {
    "content_scripts": [ {
       "js": [ "lib/TIM.global.js", "lib/TIM.settings.js", "lib/TIM.view.js", "lib/TIM.convert.js", "content.js" ],
+      "css": [ "tooltip.css" ],
       "matches": [ "http://*/*", "https://*/*" ],
       "run_at": "document_end"
    } ],
