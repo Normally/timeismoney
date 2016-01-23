@@ -16,9 +16,11 @@ https://chrome.google.com/webstore/detail/time-is-money/djgfofcgmhmmamdbjbcefbmc
 
 ## To do
 
-- Remove unhelpfully small units (e.g. "4 minutes", not "4 minutes, 3 seconds")
-- Add 'advanced' fields: tax, days a week, hours a day
-- Change the numbers without a refresh when you click on/off
-- Add ability to compare to another unit (e.g. how many coffees is that)
-- Example pages to look at
-- Compare your wage against...
+- [x] Remove unhelpfully small units (e.g. "4 minutes", not "4 minutes, 3 seconds")
+> Work-in-progress will need refining
+- [ ] Add 'advanced' fields: tax, days a week, hours a day
+- [ ] Change the numbers without a refresh when you click on/off
+- [ ] Consider building only one tooltip that is positioned to avoid overflow:hidden and index issues
+- [ ] Add ability to compare to another unit (e.g. how many coffees is that)
+- [ ] Example pages to look at
+- [ ] Compare your wage against...

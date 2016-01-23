@@ -19,7 +19,7 @@ span.timeIsMoney-tooltip {
   background-color: #50E3C2;
   opacity: 0.9;
   color: black;
-  z- index: 100000;
+  z-index: 100000;
   border-radius: 4px;
 }
 
