@@ -10,7 +10,7 @@ body {
   padding: 0;
   margin: 0;
   background-color: white;
-  font-family: Lato;
+  font-family: Roboto;
   font-size: 14px;
   background-image: url(../img/background.svg);
   background-size: 371px;
@@ -46,19 +46,22 @@ body {
   color: white;
 }
 .formItem-input input[type="text"] {
-  width: 100%;
+  font-family: Roboto;
+  width: 270px;
   border-radius: 0;
   border: 0;
-  border-bottom: 6px solid #a4cdcb;
-  font-family: Lato;
+  border-bottom: 6px solid rgba(0,0,0,0);
   font-weight: 100;
   background: transparent;
   color: #a4cdcb;
   font-size: 50px;
-  padding: 0 0 10px 0;
+  padding: 0;
+}
+.formItem-input input[type="text"]:hover {
+  color: #e9594e;
 }
 .formItem-input input[type="text"]:focus {
-  background: rgba(255,255,255,0.1);
+  border-bottom: 6px solid #a4cdcb;
 }
 button {
   cursor: pointer;
@@ -67,7 +70,6 @@ button {
   background-color: white;
   color: #0ac5f4;
   padding: 7px 20px;
-  font-family: Lato;
   font-size: 14px;
 }
 button.onoff {
@@ -106,6 +108,7 @@ h2 span.version {
 }
 
 .advancedOptionsToggle {
+  cursor: pointer;
   background-image: url(../img/expand_arrow.svg);
   background-repeat: no-repeat;
   background-position: center center;
@@ -118,6 +121,7 @@ h2 span.version {
 
 .advancedOptions {
   display: none;
+  padding-top: 170px;
 }
 
 .advancedOptions.open {
