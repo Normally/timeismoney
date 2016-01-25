@@ -9,7 +9,7 @@ body {
   position: relative;
   padding: 0;
   margin: 0;
-  background-color: #0ac5f4;
+  background-color: white;
   font-family: Lato;
   font-size: 14px;
 }
@@ -109,4 +109,12 @@ h2 span.version {
 
 .advancedOptions.open {
   display: block;
+}
+
+.headerLogo {
+  width: 93px;
+  height: 40px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
 }
