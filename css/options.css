@@ -1,8 +1,10 @@
 * { box-sizing: border-box; outline: none; }
+
 html, body {
-  width: 409px;
+  width: 368px;
   height: 200px;
 }
+
 body {
   position: relative;
   padding: 0;
@@ -10,8 +12,8 @@ body {
   background-color: #0ac5f4;
   font-family: Lato;
   font-size: 14px;
-  /* border: 5px solid white; */
 }
+
 #mainContent {
   padding: 20px;
 }
@@ -101,4 +103,10 @@ h2 span.version {
   margin-left: 8px;
 }
 
+.advancedOptions {
+  display: none;
+}
 
+.advancedOptions.open {
+  display: block;
+}

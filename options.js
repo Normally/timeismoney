@@ -69,3 +69,7 @@ document.getElementById('salary').addEventListener('keypress', function(e) {
   var key = e.which || e.keyCode;
   if (key === 13) { save_options(); }
 });
+
+document.getElementById('advancedOptionsToggle').addEventListener('click', function() {
+  document.getElementById('advancedOptions').classList.toggle('open');
+});
