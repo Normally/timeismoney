@@ -47,10 +47,10 @@ function setActiveState(state) {
 
 function restore_options() {
   chrome.storage.sync.get({
-    yearlySalary: '22000',
+    yearlyWage: '22000',
     isActive: true
   }, function(items) {
-    document.getElementById('salary').value = items.yearlySalary;
+    document.getElementById('salary').value = items.yearlyWage;
     if (items.isActive) {
       document.getElementById('on').innerHTML  = "&#10004; On";
       document.getElementById('off').innerHTML = "Off";
