@@ -4,7 +4,7 @@ function save_options() {
   var yearlySalary = document.getElementById('salary').value;
   var cleaned = yearlySalary.replace(re_strip, '');
   chrome.storage.sync.set({
-    yearlySalary: cleaned
+    yearlyWage: cleaned
   }, function() {
     // Update status to let user know options were saved.
     var status = document.getElementById('status');
