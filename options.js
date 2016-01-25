@@ -18,30 +18,15 @@ function save_options() {
   });
 }
 
-function setActiveStateTrue()  { setActiveState(true);  };
-function setActiveStateFalse() { setActiveState(false); };
-
-function setActiveState(state) {
-  chrome.storage.sync.set({
-    isActive: state
-  }, function() {
-    // Update status to let user know options were saved.
-    var status = document.getElementById('status');
-    status.className = 'show';
-    if (state) {
-      status.textContent = "Switched on";
-      document.getElementById('on').innerHTML  = "&#10004; On";
-      document.getElementById('off').innerHTML = "Off";
-    } else {
-      status.textContent = "Switched off";
-      document.getElementById('on').innerHTML  = "On";
-      document.getElementById('off').innerHTML = "&#10004; Off";
+function toggleActiveState() {
+  chrome.storage.sync.get({ isActive: true }, function(items) {
+    if (items.isActive) {
+      chrome.storage.sync.set({ isActive: false });
     }
-    status.style.opacity = 1;
-    setTimeout(function() {
-      status.style.opacity = 0;
-      window.close();
-    }, 750);
+    else {
+      chrome.storage.sync.set({ isActive: true });
+    };
+    document.getElementById("onOffSwitch").classList.toggle("onOffSwitch--off");
   });
 };
 
@@ -51,19 +36,14 @@ function restore_options() {
     isActive: true
   }, function(items) {
     document.getElementById('salary').value = items.yearlyWage;
-    if (items.isActive) {
-      document.getElementById('on').innerHTML  = "&#10004; On";
-      document.getElementById('off').innerHTML = "Off";
-    } else {
-      document.getElementById('on').innerHTML  = "On";
-      document.getElementById('off').innerHTML = "&#10004; Off";
+    if (!items.isActive) {
+      document.getElementById("onOffSwitch").classList.add("onOffSwitch--off");
     };
   });
 }
 
 document.addEventListener('DOMContentLoaded', restore_options);
-document.getElementById('on').addEventListener('click', setActiveStateTrue);
-document.getElementById('off').addEventListener('click', setActiveStateFalse);
+document.getElementById('onOffSwitch').addEventListener('click', toggleActiveState);
 document.getElementById('save').addEventListener('click', save_options);
 document.getElementById('salary').addEventListener('keypress', function(e) {
   var key = e.which || e.keyCode;
