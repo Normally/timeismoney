@@ -1,8 +1,8 @@
 // Saves options to chrome.storage.sync.
 function save_options() {
   var re_strip = /[^0-9]/g;
-  var yearlySalary = document.getElementById('salary').value;
-  var cleaned = parseInt(yearlySalary.replace(re_strip, ''));
+  var yearlyWage = document.getElementById('salary').value;
+  var cleaned = parseInt(yearlyWage.replace(re_strip, ''));
   chrome.storage.sync.set({
     yearlyWage: cleaned
   }, function() {
