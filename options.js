@@ -2,7 +2,7 @@
 function save_options() {
   var re_strip = /[^0-9]/g;
   var yearlySalary = document.getElementById('salary').value;
-  var cleaned = yearlySalary.replace(re_strip, '');
+  var cleaned = parseInt(yearlySalary.replace(re_strip, ''));
   chrome.storage.sync.set({
     yearlyWage: cleaned
   }, function() {
@@ -45,10 +45,7 @@ function setActiveState(state) {
   });
 };
 
-// Restores select box and checkbox state using the preferences
-// stored in chrome.storage.
 function restore_options() {
-  // Use default value color = 'red' and likesColor = true.
   chrome.storage.sync.get({
     yearlySalary: '22000',
     isActive: true
@@ -63,6 +60,7 @@ function restore_options() {
     };
   });
 }
+
 document.addEventListener('DOMContentLoaded', restore_options);
 document.getElementById('on').addEventListener('click', setActiveStateTrue);
 document.getElementById('off').addEventListener('click', setActiveStateFalse);

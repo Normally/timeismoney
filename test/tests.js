@@ -68,3 +68,13 @@ QUnit.test( "Match a small number", function( assert ) {
   var after  = TIM.convert.replaceMoneyWithTime(before);
   assert.equal(after, "2min");
 });
+
+QUnit.test( "Allow the salary to be changed", function(assert) {
+  var time = TIM.convert.moneyToTime(5);
+  assert.equal( time, "6min" );
+  TIM.settings.values.yearlyWage = 100;
+  console.log(TIM.settings.values);
+  var time = TIM.convert.moneyToTime(5);
+  assert.equal( time, "2.5wk" );
+});
+
