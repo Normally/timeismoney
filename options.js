@@ -50,6 +50,8 @@ document.getElementById('salary').addEventListener('keypress', function(e) {
   if (key === 13) { save_options(); }
 });
 
+// Advanced options toggle
 document.getElementById('advancedOptionsToggle').addEventListener('click', function() {
-  document.getElementById('advancedOptions').classList.toggle('open');
+  document.getElementById('advancedOptionsToggle').classList.toggle('advancedOptionsToggle--hidden');
+  document.getElementById('window').classList.toggle('expanded');
 });

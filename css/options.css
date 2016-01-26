@@ -1,8 +1,12 @@
 * { box-sizing: border-box; outline: none; }
 
+#window          { transition: 0.3s height ease-out; }
+#window.expanded { height: 445px!important; }
+
 html, body {
   width: 368px;
   height: 100px;
+  overflow: hidden;
 }
 
 body {
@@ -117,15 +121,15 @@ h2 span.version {
   position: absolute;
   left: 0;
   bottom: 20px;
+  opacity: 1;
+}
+
+.advancedOptionsToggle--hidden {
+  opacity: 0;
 }
 
 .advancedOptions {
-  display: none;
   padding-top: 170px;
-}
-
-.advancedOptions.open {
-  display: block;
 }
 
 .headerLogo {
@@ -155,3 +159,4 @@ h2 span.version {
 .onOffSwitch--off {
   background-position: -46px 0;
 }
+
