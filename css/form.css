@@ -1,21 +1,37 @@
+.u-floatLeft {
+  float: left;
+}
+
 .advancedOptions {
-  padding: 100px 30px 0 30px;
+  padding: 190px 30px 0 30px;
 }
 
 .formItem {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   width: 270px;
 }
 
 .formItem--small {
-  width: 100px;
+  width: 140px;
+}
+
+.formItem--small .formItem-input {
+  width: 50px;
+  float: left;
+}
+
+.formItem--small .formItem-label {
+  width: 50px;
+  float: left;
+  margin-left: 8px;
+  margin-top: 5px;
+  margin-bottom: 0;
 }
 
 .formItem--float {
   float: left;
   margin-right: 10px;
 }
-
 
 .formItem-label {
   display: block;
@@ -30,13 +46,17 @@
   font-family: Roboto;
   width: 100%;
   border-radius: 0;
-  border: 2px solid #a4cdcb;
+  border: 2px solid rgba(0,0,0,0);
   background: white;
   font-weight: 400;
   color: #a4cdcb;
   color: rgba(0,0,0,0.8);
   font-size: 24px;
   padding: 4px;
+}
+
+.formItem-input--float {
+  float: left;
 }
 
 .formItem-input input[type="text"]:hover {
