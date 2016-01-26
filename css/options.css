@@ -1,7 +1,7 @@
-* { box-sizing: border-box; outline: none; }
+* { -webkit-user-select: none;box-sizing: border-box; outline: none; }
 
 #window          { transition: 0.3s height ease-out; }
-#window.expanded { height: 445px!important; }
+#window.expanded { height: 400px!important; }
 
 html, body {
   width: 368px;
@@ -16,13 +16,10 @@ body {
   background-color: white;
   font-family: Roboto;
   font-size: 14px;
-  background-image: url(../img/background.svg);
+  /* background-image: url(../img/background.svg); */
   background-size: 371px;
 }
 
-#mainContent {
-  padding: 20px;
-}
 #status {
   line-height: 20px;
   opacity: 0;
@@ -35,101 +32,22 @@ body {
 #status.show {
   opacity: 1;
 }
-.settingsForm {
-  margin-bottom: 10px;
-}
-.formItem {
-  margin-bottom: 30px;
-}
-.formItem-label {
-  margin-bottom: 7px;
-  font-weight: 100;
-  letter-spacing: 0.08em;
-  font-size: 13px;
-  text-transform: uppercase;
-  color: white;
-}
-.formItem-input input[type="text"] {
-  font-family: Roboto;
-  width: 270px;
-  border-radius: 0;
-  border: 0;
-  border-bottom: 6px solid rgba(0,0,0,0);
-  font-weight: 100;
-  background: transparent;
-  color: #a4cdcb;
-  font-size: 50px;
-  padding: 0;
-}
-.formItem-input input[type="text"]:hover {
-  color: #e9594e;
-}
-.formItem-input input[type="text"]:focus {
-  border-bottom: 6px solid #a4cdcb;
-}
-button {
-  cursor: pointer;
-  border: 0;
-  border-radius: 4px;
-  background-color: white;
-  color: #0ac5f4;
-  padding: 7px 20px;
-  font-size: 14px;
-}
-button.onoff {
-  width: 90px;
-}
-.saveButtonContainer {
-  position: relative;
-  width: 100%;
-  height: 40px;
-  top: 0;
-}
-.saveButtonContainer button {
-  position: absolute;
-  left: 0;
-  width: 80px;
-}
-.saveButtonContainer #status {
-  position: absolute;
-  left: 95px;
-  line-height: 31px;
-}
-h2 {
-  color: rgba(0,0,0,0.5);
-  font-size: 14px;
-  margin-bottom: 20px;
-  border-bottom: 1px solid rgba(0,0,0,0.1);
-  padding-bottom: 10px;
-  padding-top: 0;
-  margin-top: 0;
-    display: none;
-}
-h2 span.version {
-  font-weight: 300;
-  color: #999;
-  margin-left: 8px;
-}
-
 .advancedOptionsToggle {
   cursor: pointer;
   background-image: url(../img/expand_arrow.svg);
   background-repeat: no-repeat;
   background-position: center center;
-  height: 10px;
+  background-size: 17px;
+  height: 40px;
   width: 100%;
   position: absolute;
   left: 0;
-  bottom: 20px;
+  bottom: 00px;
   opacity: 1;
 }
 
 .advancedOptionsToggle--hidden {
   opacity: 0;
-}
-
-.advancedOptions {
-  padding-top: 170px;
 }
 
 .headerLogo {

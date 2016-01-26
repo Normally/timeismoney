@@ -2,37 +2,43 @@
 <head>
   <title>Time is Money Settings</title>
   <link href="css/options.css" media="screen" rel="stylesheet" type="text/css">
-  <link href='https://fonts.googleapis.com/css?family=Roboto:100,500' rel='stylesheet' type='text/css'>
+  <link href="css/form.css" media="screen" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Roboto:100,400,500' rel='stylesheet' type='text/css'>
 </head>
 
 <body id="window">
   <div id="mainContent">
-    <h2>Time is Money <span class="version">v1.6</span></h2>
 
-    <img class="headerLogo" src="img/logo.svg" />
-
-    <div class="onOffSwitch" id="onOffSwitch">
+    <div class="minimised">
+      <img class="headerLogo" src="img/logo.svg" />
+      <div class="onOffSwitch" id="onOffSwitch"></div>
+      <div class="advancedOptionsToggle" id="advancedOptionsToggle"></div>
     </div>
 
-    <div class="settingsForm">
+    <div class="advancedOptions" id="advancedOptions">
 
-      <div class="advancedOptionsToggle" id="advancedOptionsToggle"></div>
-
-      <div class="advancedOptions" id="advancedOptions">
-        <div class="formItem">
-          <div class="formItem-input">
-            <input type="text" id="salary" />
-          </div>
-        </div>
-
-        <div class="saveButtonContainer">
-          <button id="save">SAVE</button>
-          <div id="status">&nbsp;</div>
-        </div>
+      <div class="formItem">
+        <label class="formItem-label" for="salary">Salary</label>
+        <input class="formItem-input" type="text" id="salary" autocomplete="off"/>
       </div>
 
+      <div class="formItem formItem--small formItem--float">
+        <label class="formItem-label" for="hours">Hours a day</label>
+        <input class="formItem-input" type="text" id="hours" autocomplete="off"/>
+      </div>
+
+      <div class="formItem formItem--small formItem--float">
+        <label class="formItem-label" for="hours">Days a week</label>
+        <input class="formItem-input" type="text" id="days" autocomplete="off"/>
+      </div>
+
+      <div class="formItem formItem--small formItem--float">
+        <label class="formItem-label" for="hours">Tax rate</label>
+        <input class="formItem-input" type="text" id="tax" autocomplete="off"/>
+      </div>
 
     </div>
+
   </div>
 
   <script src="options.js"></script>

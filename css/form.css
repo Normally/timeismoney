@@ -1,0 +1,76 @@
+.advancedOptions {
+  padding: 100px 30px 0 30px;
+}
+
+.formItem {
+  margin-bottom: 30px;
+  width: 270px;
+}
+
+.formItem--small {
+  width: 100px;
+}
+
+.formItem--float {
+  float: left;
+  margin-right: 10px;
+}
+
+
+.formItem-label {
+  display: block;
+  margin-bottom: 7px;
+  font-weight: 400;
+  font-size: 13px;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.8);
+}
+
+.formItem-input {
+  font-family: Roboto;
+  width: 100%;
+  border-radius: 0;
+  border: 2px solid #a4cdcb;
+  background: white;
+  font-weight: 400;
+  color: #a4cdcb;
+  color: rgba(0,0,0,0.8);
+  font-size: 24px;
+  padding: 4px;
+}
+
+.formItem-input input[type="text"]:hover {
+  color: #e9594e;
+}
+.formItem-input:focus {
+  border-color: #e9594e;
+}
+button {
+  cursor: pointer;
+  border: 0;
+  border-radius: 4px;
+  background-color: white;
+  color: #0ac5f4;
+  padding: 7px 20px;
+  font-size: 14px;
+}
+button.onoff {
+  width: 90px;
+}
+.saveButtonContainer {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  top: 0;
+}
+.saveButtonContainer button {
+  position: absolute;
+  left: 0;
+  width: 80px;
+}
+.saveButtonContainer #status {
+  position: absolute;
+  left: 95px;
+  line-height: 31px;
+}
+

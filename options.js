@@ -2,9 +2,15 @@
 function save_options() {
   var re_strip = /[^0-9]/g;
   var yearlyWage = document.getElementById('salary').value;
+  var workingHoursInput = document.getElementById('hours').value;
+  var workingDaysInput = document.getElementById('days').value;
+  var taxInput = document.getElementById('tax').value;
   var cleaned = parseInt(yearlyWage.replace(re_strip, ''));
   chrome.storage.sync.set({
-    yearlyWage: cleaned
+    yearlyWage: cleaned,
+    workingHours: workingHoursInput,
+    tax: taxInput,
+    workingDays: workingDaysInput
   }, function() {
     // Update status to let user know options were saved.
     var status = document.getElementById('status');
@@ -33,9 +39,15 @@ function toggleActiveState() {
 function restore_options() {
   chrome.storage.sync.get({
     yearlyWage: '22000',
-    isActive: true
+    isActive: true,
+    workingHours: 8,
+    workingDays: 5,
+    tax: 0
   }, function(items) {
     document.getElementById('salary').value = items.yearlyWage;
+    document.getElementById('hours').value = items.workingHours;
+    document.getElementById('days').value = items.workingDays;
+    document.getElementById('tax').value = items.tax;
     if (!items.isActive) {
       document.getElementById("onOffSwitch").classList.add("onOffSwitch--off");
     };
@@ -44,11 +56,10 @@ function restore_options() {
 
 document.addEventListener('DOMContentLoaded', restore_options);
 document.getElementById('onOffSwitch').addEventListener('click', toggleActiveState);
-document.getElementById('save').addEventListener('click', save_options);
-document.getElementById('salary').addEventListener('keypress', function(e) {
-  var key = e.which || e.keyCode;
-  if (key === 13) { save_options(); }
-});
+document.getElementById('window').addEventListener('keypress', function(e) { save_options(); });
+// document.getElementById('tax').addEventListener('keypress', function(e) { save_options(); });
+// document.getElementById('hours').addEventListener('keypress', function(e) { save_options(); });
+// document.getElementById('days').addEventListener('keypress', function(e) { save_options(); });
 
 // Advanced options toggle
 document.getElementById('advancedOptionsToggle').addEventListener('click', function() {
