@@ -69,6 +69,12 @@ QUnit.test( "Match a small number", function( assert ) {
   assert.equal(after, "2min");
 });
 
+QUnit.test( "Match nothing", function( assert ) {
+  var before = "£0.00";
+  var after  = TIM.convert.replaceMoneyWithTime(before);
+  assert.equal(after, "0s");
+});
+
 QUnit.test( "Allow the salary to be changed", function(assert) {
   var time = TIM.convert.moneyToTime(5);
   assert.equal( time, "6min" );
