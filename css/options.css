@@ -1,11 +1,11 @@
 * { -webkit-user-select: none;box-sizing: border-box; outline: none; }
 
 #window          { transition: 0.3s height ease-out; }
-#window.expanded { height: 315px!important; }
+#window.expanded { height: 290px!important; }
 
 html, body {
   width: 368px;
-  height: 100px;
+  height: 93px;
   overflow: hidden;
 }
 
@@ -66,7 +66,7 @@ body {
   background-size: 138px;
   display: block;
   width: 92px;
-  height: 29px;
+  height: 28px;
   transition: 0.3s background-position;
   position: absolute;
   top: 25px;
