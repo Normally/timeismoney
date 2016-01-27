@@ -1,7 +1,7 @@
 * { -webkit-user-select: none;box-sizing: border-box; outline: none; }
 
 #window          { transition: 0.3s height ease-out; }
-#window.expanded { height: 400px!important; }
+#window.expanded { height: 342px!important; }
 
 html, body {
   width: 368px;
