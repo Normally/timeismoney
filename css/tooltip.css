@@ -8,11 +8,10 @@ span.timeIsMoney:hover > span.timeIsMoney-tooltip {
 }
 
 .timeIsMoney-tooltip {
-  background-color: #53cfdf;
+  background-color: #a4cdcb;
   font-family: sans-serif;
-  font-size: 16px;
-  font-weight: lighter;
-  color: #302f33;
+  font-size: 18px;
+  color: white;
   width: 80px;
   height:80px;
   line-height: 80px;
@@ -38,7 +37,7 @@ span.timeIsMoney:hover > span.timeIsMoney-tooltip {
 	position: absolute;
 	pointer-events: none;
 	border-color: rgba(136, 183, 213, 0);
-	border-right-color: #53cfdf;
+	border-right-color: #a4cdcb;
 	border-width: 10px;
 	margin-top: -10px;
 }

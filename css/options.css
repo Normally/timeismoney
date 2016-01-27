@@ -1,7 +1,7 @@
 * { -webkit-user-select: none;box-sizing: border-box; outline: none; }
 
 #window          { transition: 0.3s height ease-out; }
-#window.expanded { height: 342px!important; }
+#window.expanded { height: 315px!important; }
 
 html, body {
   width: 368px;
@@ -51,16 +51,15 @@ body {
 }
 
 .headerLogo {
-  width: 93px;
-  height: 40px;
+  width: 64px;
   position: absolute;
-  top: 20px;
+  top: 25px;
   right: 25px;
 }
 
 .onOffSwitch {
   cursor: pointer;
-  background-image: url(../img/on-off.svg);
+  background-image: url(../img/on-off.png);
   border-radius: 4px;
   background-position: 0 0;
   background-repeat: no-repeat;
