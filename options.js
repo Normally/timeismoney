@@ -4,12 +4,10 @@ function save_options() {
   var yearlyWage = document.getElementById('salary').value;
   var workingHoursInput = document.getElementById('hours').value;
   var workingDaysInput = document.getElementById('days').value;
-  var taxInput = document.getElementById('tax').value;
   var cleaned = parseInt(yearlyWage.replace(re_strip, ''));
   chrome.storage.sync.set({
     yearlyWage: cleaned,
     workingHours: workingHoursInput,
-    tax: taxInput,
     workingDays: workingDaysInput
   }, function() {
     // Update status to let user know options were saved.
@@ -47,7 +45,6 @@ function restore_options() {
     document.getElementById('salary').value = items.yearlyWage;
     document.getElementById('hours').value = items.workingHours;
     document.getElementById('days').value = items.workingDays;
-    document.getElementById('tax').value = items.tax;
     if (!items.isActive) {
       document.getElementById("onOffSwitch").classList.add("onOffSwitch--off");
     };
@@ -57,9 +54,8 @@ function restore_options() {
 document.addEventListener('DOMContentLoaded', restore_options);
 document.getElementById('onOffSwitch').addEventListener('click', toggleActiveState);
 document.getElementById('window').addEventListener('keypress', function(e) { save_options(); });
-// document.getElementById('tax').addEventListener('keypress', function(e) { save_options(); });
-// document.getElementById('hours').addEventListener('keypress', function(e) { save_options(); });
-// document.getElementById('days').addEventListener('keypress', function(e) { save_options(); });
+document.getElementById('hours').addEventListener('keypress', function(e) { save_options(); });
+document.getElementById('days').addEventListener('keypress', function(e) { save_options(); });
 
 // Advanced options toggle
 document.getElementById('advancedOptionsToggle').addEventListener('click', function() {
