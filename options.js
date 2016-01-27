@@ -1,12 +1,12 @@
 // Saves options to chrome.storage.sync.
 function save_options() {
   var re_strip = /[^0-9]/g;
-  var yearlyWage = document.getElementById('salary').value;
+  var monthlyWage = document.getElementById('monthlyWage').value;
   var workingHoursInput = document.getElementById('hours').value;
   var workingDaysInput = document.getElementById('days').value;
-  var cleaned = parseInt(yearlyWage.replace(re_strip, ''));
+  var cleaned = parseInt(monthlyWage.replace(re_strip, ''));
   chrome.storage.sync.set({
-    yearlyWage: cleaned,
+    monthlyWage: cleaned,
     workingHours: workingHoursInput,
     workingDays: workingDaysInput
   }, function() {
@@ -36,13 +36,13 @@ function toggleActiveState() {
 
 function restore_options() {
   chrome.storage.sync.get({
-    yearlyWage: '22000',
+    monthlyWage: '600',
     isActive: true,
     workingHours: 8,
     workingDays: 5,
     tax: 0
   }, function(items) {
-    document.getElementById('salary').value = items.yearlyWage;
+    document.getElementById('monthlyWage').value = items.monthlyWage;
     document.getElementById('hours').value = items.workingHours;
     document.getElementById('days').value = items.workingDays;
     if (!items.isActive) {
