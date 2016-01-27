@@ -25,3 +25,5 @@ https://chrome.google.com/webstore/detail/time-is-money/djgfofcgmhmmamdbjbcefbmc
 - [ ] Example pages to look at
 - [ ] Compare your wage against...
 - [ ] Add a generic 'cleaner' function that can be used for all fields
+- [ ] Field cleaning
+- [ ] Replace the value option
