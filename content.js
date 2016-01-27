@@ -6,7 +6,8 @@ function getOffset (el) {
   return {
     top: box.top + window.pageYOffset - document.documentElement.clientTop,
     left: box.left + window.pageXOffset - document.documentElement.clientLeft,
-    width: box.width
+    width: box.width,
+    height: box.height
   }
 }
 
@@ -23,8 +24,8 @@ function createTooltipNode(portion, match) {
 function activateTooltip(e) {
   tooltip.innerHTML = e.target.getAttribute('data-time');
   offset = getOffset(e.target);
-  tooltip.style.top = offset.top+"px";
-  tooltip.style.left = (offset.left+offset.width)+"px";
+  tooltip.style.top = (offset.top-40+(offset.height/2))+"px";
+  tooltip.style.left = (offset.left+offset.width+10)+"px";
   tooltip.classList.add('active');
 }
 
