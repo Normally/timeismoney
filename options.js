@@ -53,9 +53,9 @@ function restore_options() {
 
 document.addEventListener('DOMContentLoaded', restore_options);
 document.getElementById('onOffSwitch').addEventListener('click', toggleActiveState);
-document.getElementById('window').addEventListener('keypress', function(e) { save_options(); });
-document.getElementById('hours').addEventListener('keypress', function(e) { save_options(); });
-document.getElementById('days').addEventListener('keypress', function(e) { save_options(); });
+document.getElementById('monthlyWage').addEventListener('input', function(e) { save_options(); });
+document.getElementById('hours').addEventListener('input', function(e) { save_options(); });
+document.getElementById('days').addEventListener('input', function(e) { save_options(); });
 
 // Advanced options toggle
 document.getElementById('advancedOptionsToggle').addEventListener('click', function() {
