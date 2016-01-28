@@ -4,11 +4,13 @@ function save_options() {
   var monthlyWage = document.getElementById('monthlyWage').value;
   var workingHoursInput = document.getElementById('hours').value;
   var workingDaysInput = document.getElementById('days').value;
+  var replaceCheckbox = document.getElementById('replace').checked;
   var cleaned = parseInt(monthlyWage.replace(re_strip, ''));
   chrome.storage.sync.set({
     monthlyWage: cleaned,
     workingHours: workingHoursInput,
-    workingDays: workingDaysInput
+    workingDays: workingDaysInput,
+    replace: replaceCheckbox
   }, function() {
     // Update status to let user know options were saved.
     var status = document.getElementById('status');
@@ -40,11 +42,13 @@ function restore_options() {
     isActive: true,
     workingHours: 8,
     workingDays: 5,
-    tax: 0
+    tax: 0,
+    replace: false
   }, function(items) {
     document.getElementById('monthlyWage').value = items.monthlyWage;
     document.getElementById('hours').value = items.workingHours;
     document.getElementById('days').value = items.workingDays;
+    document.getElementById('replace').checked = items.replace;
     if (!items.isActive) {
       document.getElementById("onOffSwitch").classList.add("onOffSwitch--off");
     };
@@ -56,6 +60,7 @@ document.getElementById('onOffSwitch').addEventListener('click', toggleActiveSta
 document.getElementById('monthlyWage').addEventListener('input', function(e) { save_options(); });
 document.getElementById('hours').addEventListener('input', function(e) { save_options(); });
 document.getElementById('days').addEventListener('input', function(e) { save_options(); });
+document.getElementById('replace').addEventListener('click', function(e) { save_options(); });
 
 // Advanced options toggle
 document.getElementById('advancedOptionsToggle').addEventListener('click', function() {

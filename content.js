@@ -14,8 +14,14 @@ function getOffset (el) {
 function createTooltipNode(portion, match) {
   var span = document.createElement("span");
   span.classList.add("timeIsMoney");
-  span.setAttribute("data-time", TIM.convert.replaceMoneyWithTime(portion.text));
-  span.innerHTML = portion.text;
+  if (TIM.settings.values.replace == false) {
+    span.setAttribute("data-time", TIM.convert.replaceMoneyWithTime(portion.text));
+    span.innerHTML = portion.text;
+  }
+  else {
+    span.setAttribute("data-time", portion.text);
+    span.innerHTML = TIM.convert.replaceMoneyWithTime(portion.text);
+  }
   span.addEventListener("mouseover", activateTooltip);
   span.addEventListener("mouseout", hideTooltip);
   return span;
