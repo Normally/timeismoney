@@ -9,7 +9,7 @@
    "manifest_version": 2,
    "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
    "background": { "page": "ga.html" },
-   "name": "Time is money",
+   "name": "Time is Money",
    "update_url": "https://clients2.google.com/service/update2/crx",
    "icons": { "16": "icon16.png",
               "48": "icon48.png",
