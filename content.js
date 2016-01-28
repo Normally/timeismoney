@@ -1,5 +1,7 @@
 // Time is money
 
+var convert = window.TimeIsMoney.convert;
+
 function getOffset (el) {
   const box = el.getBoundingClientRect();
 
@@ -15,12 +17,12 @@ function createTooltipNode(portion, match) {
   var span = document.createElement("span");
   span.classList.add("timeIsMoney");
   if (TIM.settings.values.replace == false) {
-    span.setAttribute("data-time", TIM.convert.replaceMoneyWithTime(portion.text));
+    span.setAttribute("data-time", convert(portion.text));
     span.innerHTML = portion.text;
   }
   else {
     span.setAttribute("data-time", portion.text);
-    span.innerHTML = TIM.convert.replaceMoneyWithTime(portion.text);
+    span.innerHTML = convert(portion.text);
   }
   span.addEventListener("mouseover", activateTooltip);
   span.addEventListener("mouseout", hideTooltip);
