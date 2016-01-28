@@ -92,3 +92,20 @@ button.onoff {
   line-height: 31px;
 }
 
+input#monthlyWage {
+  -webkit-filter: blur(5px);
+  transition: all 0.5s;
+}
+
+.monthlyWageInputContainer {
+  background: white;
+}
+
+input#monthlyWage {
+  background: transparent;
+}
+input#monthlyWage:hover,
+input#monthlyWage:focus {
+  -webkit-filter: none;
+}
+
